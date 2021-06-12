@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../objetos/DataPrevision.dart';
+import '../models/DataPrevision.dart';
 
 class Prevision {
   Future<Weatherobjects> getPrevisao(String city) async {

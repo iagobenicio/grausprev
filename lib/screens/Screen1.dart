@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../objetos/DataPrevision.dart';
+import '../models/DataPrevision.dart';
 import '../components/Texts.dart';
 import '../components/ColumnComponent.dart';
 import '../components/ContainerComponent.dart';
 
 class FirstScreen extends StatelessWidget {
-  Weatherobjects weather;
-  FirstScreen(this.weather);
+  Weatherobjects _weather;
+  FirstScreen(this._weather);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,15 +32,15 @@ class FirstScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextComponent(
-                    this.weather.temp.toString() + "°C",
+                    _weather.getTemp().toString() + "°C",
                     textsize: 34.0,
                   ),
                   TextComponent(
-                    this.weather.city,
+                    _weather.getCity(),
                     textsize: 23.0,
                   ),
                   TextComponent(
-                    this.weather.description,
+                    _weather.getDescription(),
                     textsize: 13.0,
                   ),
                 ],
@@ -55,28 +55,28 @@ class FirstScreen extends StatelessWidget {
                   ColumnCP([
                     Image.asset("imagens/humidity.png", scale: 1.3),
                     TextComponent(
-                      this.weather.humidity.toString() + "%",
+                      _weather.getHumidity().toString() + "%",
                       textsize: 13.0,
                     ),
                   ]),
                   ColumnCP([
                     Image.asset("imagens/wind.png", scale: 1.3),
                     TextComponent(
-                      this.weather.windSpeed,
+                      _weather.getWindspeed(),
                       textsize: 13.0,
                     ),
                   ]),
                   ColumnCP([
                     Image.asset("imagens/max.png", scale: 1.3),
                     TextComponent(
-                      this.weather.nextdays[0]["max"].toString() + "°",
+                      _weather.getNextdays()[0]["max"].toString() + "°",
                       textsize: 13.0,
                     ),
                   ]),
                   ColumnCP([
                     Image.asset("imagens/min.png", scale: 1.3),
                     TextComponent(
-                      this.weather.nextdays[0]["min"].toString() + "°",
+                      _weather.getNextdays()[0]["min"].toString() + "°",
                       textsize: 13.0,
                     ),
                   ]),
@@ -90,24 +90,20 @@ class FirstScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      ContainerCP(
-                        [
-                          TextComponent(
-                            "04/06/2021",
-                            textsize: 13.0,
-                          ),
-                          TextComponent(
-                            "Max. 31°",
-                            textsize: 13.0,
-                          ),
-                          TextComponent(
-                            "Min. 29°",
-                            textsize: 13.0,
-                          )
-                        ],
-                        width: 90,
-                        height: 120,
-                      )
+                      for (var i = 0; i < _weather.getNextdays().length; i++)
+                        ContainerCP(
+                          [
+                            TextComponent(_weather.getNextdays()[i]["weekday"]),
+                            TextComponent("Max." +
+                                _weather.getNextdays()[i]["max"].toString() +
+                                "°"),
+                            TextComponent("Min." +
+                                _weather.getNextdays()[i]["min"].toString() +
+                                "°")
+                          ],
+                          width: 90,
+                          height: 120,
+                        )
                     ],
                   ),
                 )),

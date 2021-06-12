@@ -60,7 +60,7 @@ class _ResultState extends State<Result> {
                   return Container(
                     color: Color.fromRGBO(15, 42, 74, 1),
                     child: Center(
-                      child: Text("Nenhum dado"),
+                      child: Text("Nenhuma conexão"),
                     ),
                   );
                 default:
