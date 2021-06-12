@@ -6,11 +6,9 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Aplicação de previsão do tempo, feito em Flutter. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+API utilizada: https://hgbrasil.com/status/weather
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+OBS: Por padrão, os dados retornados são referente a cidade de São Paulo, para ver de outra cidade, crie uma chave no site da API e coloque no parametro
+da url em "key", disponivel em "lib/services/previsaoAPI".
