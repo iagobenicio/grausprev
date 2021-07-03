@@ -51,11 +51,38 @@ class _ResultState extends State<Result> {
                   return LayoutBuilder(
                       builder: (BuildContext buildcontext, BoxConstraints box) {
                     if (box.maxWidth < 260) {
+                      if (snapshot.data is String) {
+                        return Container(
+                            color: Color.fromRGBO(15, 42, 74, 1),
+                            child: Center(child: Text(snapshot.data)));
+                      } else {
+                        if (snapshot.hasError) {
+                          return Container(
+                              color: Color.fromRGBO(15, 42, 74, 1),
+                              child: Center(
+                                  child: Text("Algum erro ocorreu",
+                                      style: TextStyle(color: Colors.white))));
+                        }
+                      }
                       return FirstScreen(snapshot.data);
                     } else {
+                      if (snapshot.data is String) {
+                        return Container(
+                            color: Color.fromRGBO(15, 42, 74, 1),
+                            child: Center(child: Text(snapshot.data)));
+                      } else {
+                        if (snapshot.hasError) {
+                          return Container(
+                              color: Color.fromRGBO(15, 42, 74, 1),
+                              child: Center(
+                                  child: Text("Algum erro ocorreu",
+                                      style: TextStyle(color: Colors.white))));
+                        }
+                      }
                       return SecondScreen(snapshot.data);
                     }
                   });
+                  break;
                 case ConnectionState.none:
                   return Container(
                     color: Color.fromRGBO(15, 42, 74, 1),
@@ -63,6 +90,7 @@ class _ResultState extends State<Result> {
                       child: Text("Nenhuma conexão"),
                     ),
                   );
+                  break;
                 default:
                   return Container(
                     child: Center(
