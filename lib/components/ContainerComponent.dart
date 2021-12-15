@@ -3,8 +3,8 @@ import 'Texts.dart';
 
 class ContainerCP extends StatelessWidget {
   List<TextComponent> textValue;
-  double width;
-  double height;
+  double? width;
+  double? height;
   ContainerCP(this.textValue, {this.width, this.height});
 
   @override

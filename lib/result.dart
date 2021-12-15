@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'services/previsaoAPI.dart';
 import 'screens/Screen1.dart';
 import 'screens/Screen2.dart';
+import 'models/DataPrevision.dart';
 
 class Result extends StatefulWidget {
-  String _namecityapi;
+  String? _namecityapi;
   Result(String objt) {
     this._namecityapi = objt;
   }
@@ -27,7 +28,7 @@ class _ResultState extends State<Result> {
         ),
         body: FutureBuilder(
             future: citys.getPrevisao(widget._namecityapi),
-            builder: (context, snapshot) {
+            builder: (context, AsyncSnapshot<Weatherobjects?> snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
                   return Container(
@@ -46,43 +47,29 @@ class _ResultState extends State<Result> {
                           backgroundColor: Color.fromRGBO(0, 82, 107, 1),
                         ),
                       ));
-                  break;
                 case ConnectionState.done:
                   return LayoutBuilder(
                       builder: (BuildContext buildcontext, BoxConstraints box) {
-                    if (box.maxWidth < 260) {
-                      if (snapshot.data is String) {
-                        return Container(
-                            color: Color.fromRGBO(15, 42, 74, 1),
-                            child: Center(child: Text(snapshot.data)));
-                      } else {
+                      if (box.maxWidth < 260) {
                         if (snapshot.hasError) {
                           return Container(
-                              color: Color.fromRGBO(15, 42, 74, 1),
-                              child: Center(
-                                  child: Text("Algum erro ocorreu",
-                                      style: TextStyle(color: Colors.white))));
+                            color: Color.fromRGBO(15, 42, 74, 1),
+                            child: Center(
+                              child: Text(snapshot.error.toString(),
+                              style: TextStyle(color: Colors.white))));
                         }
-                      }
                       return FirstScreen(snapshot.data);
                     } else {
-                      if (snapshot.data is String) {
-                        return Container(
-                            color: Color.fromRGBO(15, 42, 74, 1),
-                            child: Center(child: Text(snapshot.data)));
-                      } else {
                         if (snapshot.hasError) {
                           return Container(
-                              color: Color.fromRGBO(15, 42, 74, 1),
-                              child: Center(
-                                  child: Text("Algum erro ocorreu",
-                                      style: TextStyle(color: Colors.white))));
+                            color: Color.fromRGBO(15, 42, 74, 1),
+                            child: Center(
+                                child: Text(snapshot.error.toString(),
+                                style: TextStyle(color: Colors.white))));
                         }
-                      }
                       return SecondScreen(snapshot.data);
                     }
                   });
-                  break;
                 case ConnectionState.none:
                   return Container(
                     color: Color.fromRGBO(15, 42, 74, 1),
@@ -90,7 +77,6 @@ class _ResultState extends State<Result> {
                       child: Text("Nenhuma conexão"),
                     ),
                   );
-                  break;
                 default:
                   return Container(
                     child: Center(

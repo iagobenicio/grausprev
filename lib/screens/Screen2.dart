@@ -5,7 +5,7 @@ import '../components/ContainerComponent.dart';
 import '../models/DataPrevision.dart';
 
 class SecondScreen extends StatelessWidget {
-  Weatherobjects _weather;
+  Weatherobjects? _weather;
   SecondScreen(this._weather);
   @override
   Widget build(BuildContext context) {
@@ -32,15 +32,15 @@ class SecondScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextComponent(
-                      _weather.getTemp().toString() + "°C",
+                      _weather!.getTemp().toString() + "°C",
                       textsize: 45.0,
                     ),
                     TextComponent(
-                      _weather.getCity(),
+                      _weather!.getCity(),
                       textsize: 34.0,
                     ),
                     TextComponent(
-                      _weather.getDescription(),
+                      _weather!.getDescription(),
                       textsize: 24.0,
                     ),
                   ],
@@ -54,21 +54,21 @@ class SecondScreen extends StatelessWidget {
                   children: [
                     ColumnCP([
                       Image.asset("imagens/humidity.png"),
-                      TextComponent(_weather.getHumidity().toString() + "%"),
+                      TextComponent(_weather!.getHumidity().toString() + "%"),
                     ]),
                     ColumnCP([
                       Image.asset("imagens/wind.png"),
-                      TextComponent(_weather.getWindspeed()),
+                      TextComponent(_weather!.getWindspeed()),
                     ]),
                     ColumnCP([
                       Image.asset("imagens/max.png"),
                       TextComponent(
-                          _weather.getNextdays()[0]["max"].toString() + "°"),
+                          _weather!.getNextdays()[0]["max"].toString() + "°"),
                     ]),
                     ColumnCP([
                       Image.asset("imagens/min.png"),
                       TextComponent(
-                          _weather.getNextdays()[0]["min"].toString() + "°"),
+                          _weather!.getNextdays()[0]["min"].toString() + "°"),
                     ]),
                   ],
                 ),
@@ -81,16 +81,16 @@ class SecondScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        for (var i = 0; i < _weather.getNextdays().length; i++)
+                        for (var i = 0; i < _weather!.getNextdays().length; i++)
                           ContainerCP(
                             [
                               TextComponent(
-                                  _weather.getNextdays()[i]["weekday"]),
+                                  _weather!.getNextdays()[i]["weekday"]),
                               TextComponent("Max." +
-                                  _weather.getNextdays()[i]["max"].toString() +
+                                  _weather!.getNextdays()[i]["max"].toString() +
                                   "°"),
                               TextComponent("Min." +
-                                  _weather.getNextdays()[i]["min"].toString() +
+                                  _weather!.getNextdays()[i]["min"].toString() +
                                   "°")
                             ],
                             width: 110,
