@@ -8,7 +8,7 @@ class Prevision {
     try{
       var objprev = await Dio()
           .get("https://api.hgbrasil.com/weather?key=&city_name=$city");
-
+      
         var object = Weatherobjects(
             objprev.data["results"]["temp"],
             objprev.data["results"]["city"],
@@ -19,8 +19,11 @@ class Prevision {
 
         return object;
         
-    } catch (e) {
-      throw Exception(e);
+    } on DioError catch(e){
+      throw Exception(e.message);
+    } 
+    catch (e) {
+      throw Exception("Algum erro ocorreu");
     }
   
   
