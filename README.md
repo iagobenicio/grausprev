@@ -1,14 +1,30 @@
-# grausprev
+# GRAUSPREV
 
-A new Flutter project.
+Grausprev é uma aplicação de previsão do tempo. Esta aplicação foi desenvolvida através da tencologia Flutter. 
 
-## Getting Started
+No grausprev é possivel ver a previsão do tempo ao fazer uma pesquisa pela local desejado, onde, irá ter como retorno:
 
-This project is a starting point for a Flutter application.
+  - Previsão do tempo em "°C" 
+  - Clima
+  - Humidade 
+  - Velocidade do Vento
+  - Grau Minimo em "°C"
+  - Grau Máximo em "C°"  
+  
 
-Aplicação de previsão do tempo, feito em Flutter. 
 
-API utilizada: https://hgbrasil.com/status/weather
+# Mais Informações 
 
-OBS: Por padrão, os dados retornados são referente a cidade de São Paulo, para ver de outra cidade, crie uma chave no site da API e coloque no parametro
-da url em "key", disponivel em "lib/services/previsaoAPI".
+Este projeto foi desenvolvido utilizando a API: https://hgbrasil.com/status/weather. 
+
+Para clonar este projeto, siga estes passos: 
+
+Antes de tudo, certifique-se de estar com o ambiente preparado - Flutter e Dart
+
+1 - Copie a url para clonar - https://github.com/iagobenicio/grausprev.git
+
+2 - Em uma pasta, clone o proje através do comando: git clone https://github.com/iagobenicio/grausprev.git, utilizando o git.
+
+3 - Abra o projeto e baixe todas as dependências através do comando: flutter pub get
+
+4 - Execute o projeto em um dispositivo. 
