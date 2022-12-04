@@ -7,7 +7,7 @@ class Prevision {
 
     try{
       var objprev = await Dio()
-          .get("https://api.hgbrasil.com/weather?key=&city_name=$city");
+          .get("https://api.hgbrasil.com/weather?key=f8de0098&city_name=$city");
       
         var object = Weatherobjects(
             objprev.data["results"]["temp"],
