@@ -31,3 +31,5 @@ Antes de tudo, certifique-se de estar com o ambiente preparado - Flutter e Dart
 3 - Abra o projeto e baixe todas as dependências através do comando: flutter pub get
 
 4 - Execute o projeto em um dispositivo. 
+
+OBS: Aplicativo testado apenas em dispositivo android. 
