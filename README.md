@@ -10,7 +10,10 @@ No grausprev é possivel ver a previsão do tempo ao fazer uma pesquisa pela loc
   - Velocidade do Vento
   - Grau Minimo em "°C"
   - Grau Máximo em "C°"  
-  
+
+
+![Frame 1 (18)](https://user-images.githubusercontent.com/52904825/205524067-4679a0a8-521f-425c-8090-3850742cef7d.png)
+
 
 
 # Mais Informações 
